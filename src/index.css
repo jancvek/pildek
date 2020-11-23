@@ -1,0 +1,21 @@
+/* da povečamo checkbox */
+input[type='checkbox'] {
+  box-sizing: border-box;
+  padding: 0;
+  width:18px;
+  height:18px;
+}
+
+.col-9 {
+  font-size: 19px;
+}
+
+.col-10 {
+  font-size: 19px;
+}
+
+#change_btn{
+  position: fixed;
+  top: 15px;
+  right: 15px;
+}
