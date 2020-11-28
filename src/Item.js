@@ -9,13 +9,13 @@ function Item(props) {
   const [check, setCheck] = useState(props.checked);
   const {data, setData} = useContext(ListContext);
 
-  const onClick = () => {
-    setCheck(check == 1 ? 0 : 1);
+  const onCheckClick = () => {
+    const newState = check == 1 ? 0 : 1;
     saveData();
+    setCheck(newState);
   }
 
   const saveData = () => {
-    console.log(check==1?0:1);
     let c = check==1?0:1;
     fetch("/api/setData?check="+c+"&id="+props.id)
     .then((resp) => resp.json())
@@ -23,7 +23,7 @@ function Item(props) {
 
   const getColor = () =>
   {
-      if(check=='1'){
+      if(check==1){
         return '#9fdf9f';
       }else{
         return 'white';
@@ -48,10 +48,7 @@ function Item(props) {
 
             var tmp = getIndexOfById(props.id);
 
-            console.log("indexof "+props.name+": "+tmp);
             data.splice(getIndexOfById(props.id),1)
-            console.log("new data: ");
-            console.log(data.filter((a)=>{return a.id!=props.id}));
 
             setData(data.filter((a)=>{return a.id!=props.id}));
             
@@ -64,7 +61,7 @@ function Item(props) {
         <ListGroup.Item key={props.id} style={{backgroundColor: getColor()}}>
           <Row>
             <Col xs={2} align="center">
-              <Form.Check type="checkbox" checked={check} onChange={onClick}></Form.Check>
+              <Form.Check type="checkbox" checked={check} onChange={onCheckClick}></Form.Check>
             </Col>
             <Col xs={8}>
               {props.name}

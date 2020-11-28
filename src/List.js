@@ -14,28 +14,24 @@ function List(props) {
   // const [data, setData] = useState(0);
 
   const getData = async () => {
-    console.log("PRIDOBIVANJE PODATKOV");
     fetch("/api/getData?table=data")
     .then((resp) => resp.json())
     .then(function(a){
-        console.log(a);
         setData(a);
     })
   };
 
   // izvede po tem ko je bil element zgrajen
   useEffect(()=>{
-    console.log("useEffect in LIst!");
     getData();
   },[]);
 
   if(data){
     // ko dobimo nazaj podatke
-    console.log("List se je sestavil");
     return (
         <div>
             <FormAddNewItem></FormAddNewItem>
-            <ListGroup>{data.map((val) => <Item id={val.id} name={val.name} checked={val.is_checked}></Item>)}</ListGroup>
+            <ListGroup>{data.map((d) => <Item key={d.id} id={d.id} name={d.name} checked={d.is_checked}></Item>)}</ListGroup>
         </div>
       );
   }

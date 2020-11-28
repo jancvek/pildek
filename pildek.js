@@ -194,8 +194,7 @@ app.get('/api/deleteData', function(req,res){
         return;
     }
 
-    let param = reqUrl.query;
-    let sql = "DELETE FROM "+param.table+" WHERE id = '"+param.id+"'";
+    let sql = "DELETE FROM "+req.query.table+" WHERE id = '"+req.query.id+"'";
 
     db.run(sql,function (err) {
       if(err){
