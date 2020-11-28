@@ -1,0 +1,14 @@
+[Unit]
+Description=Service za pildek app
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/nodejs pildek.js
+WorkingDirectory=/home/lubuntu/jan-projects/pildek/
+StandardOutput=inherit
+StandardError=inherit
+Restart=no
+User=lubuntu
+
+[Install]
+WantedBy=multi-user.target
