@@ -17,7 +17,7 @@ function Item(props) {
   const saveData = () => {
     console.log(check==1?0:1);
     let c = check==1?0:1;
-    fetch("http://localhost:5050/setData?check="+c+"&id="+props.id)
+    fetch("/api/setData?check="+c+"&id="+props.id)
     .then((resp) => resp.json())
   }
 

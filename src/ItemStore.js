@@ -11,7 +11,7 @@ function ItemStore(props) {
     const addToData = () =>
     {        
         // check if exist
-        fetch("http://localhost:5050/getData?table=data&name="+props.name)
+        fetch("/api/getData?table=data&name="+props.name)
             .then((resp) => {
                 if(!resp.ok) throw Error(resp.statusText);
                 console.log(resp);
@@ -20,7 +20,7 @@ function ItemStore(props) {
 
                     // no content
                     // add to data
-                    fetch("http://localhost:5050/addData?table=data&name="+props.name)
+                    fetch("/api/addData?table=data&name="+props.name)
                         .then((r) =>{
                             if(!r.ok) throw Error(r.statusText);
                             return r;

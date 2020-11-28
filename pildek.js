@@ -50,9 +50,9 @@ app.get('/api/getData', function(req,res){
           
   
           if(!row){
-            console.log("Failed to get data from db: "+row);
+            console.log("No data to get data from db! Query: "+sql+ " result: " +row);
 
-            res.status(500).send(); // 500 Internal server error
+            res.status(204).send(); // 204 No Content
             return;
           }
   
