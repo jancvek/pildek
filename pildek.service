@@ -3,7 +3,7 @@ Description=Service za pildek app
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/nodejs pildek.js
+ExecStart=/home/lubuntu/.nvm/versions/node/v15.0.1/bin/node pildek.js
 WorkingDirectory=/home/lubuntu/jan-projects/pildek/
 StandardOutput=inherit
 StandardError=inherit
