@@ -18,7 +18,7 @@ function FormAddNewStore() {
 
     const addNewItem = async () =>{
         // check if exist
-        fetch("http://192.168.0.130:5050/getData?table=store&name="+name)
+        fetch("/api/getData?table=store&name="+name)
         .then((resp) => {
             if(!resp.ok) throw Error(resp.statusText);
             console.log(resp);
@@ -27,7 +27,7 @@ function FormAddNewStore() {
 
                 // no content
                 // add to data
-                fetch("http://192.168.0.130:5050/addData?table=store&name="+name)
+                fetch("/api/addData?table=store&name="+name)
                     .then((r) =>{
                         if(!r.ok) throw Error(r.statusText);
                         return r;

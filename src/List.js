@@ -15,7 +15,7 @@ function List(props) {
 
   const getData = async () => {
     console.log("PRIDOBIVANJE PODATKOV");
-    fetch("http://localhost:5050/getData?table=data")
+    fetch("/api/getData?table=data")
     .then((resp) => resp.json())
     .then(function(a){
         console.log(a);

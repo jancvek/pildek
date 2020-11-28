@@ -13,7 +13,7 @@ function ListAll(props) {
   const {dataAll, setDataAll} = useContext(StoreContext);
 
   const getData = async () => {
-    fetch("http://localhost:5050/getData?table=store")
+    fetch("/api/getData?table=store")
     .then((resp) => resp.json())
     .then(function(a){
         console.log(a);
@@ -23,7 +23,7 @@ function ListAll(props) {
 
   const addNewItem = async (name) => {
         // check if exist
-        fetch("http://localhost:5050/getData?table=store&name="+name)
+        fetch("/api/getData?table=store&name="+name)
             .then((resp) => {
                 if(!resp.ok) throw Error(resp.statusText);
                 console.log(resp);
@@ -32,7 +32,7 @@ function ListAll(props) {
 
                     // no content
                     // add to data
-                    fetch("http://localhost:5050/addData?table=store&name="+name)
+                    fetch("/api/addData?table=store&name="+name)
                         .then((r) =>{
                             if(!r.ok) throw Error(r.statusText);
                             return r;

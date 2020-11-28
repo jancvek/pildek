@@ -42,7 +42,7 @@ function Item(props) {
 
   const onDelete = () =>
   {
-    fetch("http://localhost:5050/deleteData?table=data&id="+props.id)
+    fetch("/api/deleteData?table=data&id="+props.id)
         .then((r) =>{
             if(!r.ok) throw Error(r.statusText);
 
