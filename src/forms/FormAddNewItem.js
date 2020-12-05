@@ -27,7 +27,7 @@ function FormAddNewItem() {
 
                 // no content
                 // add to data
-                fetch("/api/addData?table=data&name="+name)
+                fetch("/api/addData?table=data&name="+name+"category=50")
                     .then((r) =>{
                         if(!r.ok) throw Error(r.statusText);
                         return r;

@@ -44,7 +44,7 @@ app.get('/api/getData', function(req,res){
     // name is optional
     if(req.query.name){
 
-        let sql = "SELECT * FROM "+req.query.table+" WHERE name='"+req.query.name+"'";
+        let sql = "SELECT * FROM "+req.query.table+" WHERE name='"+req.query.name+"' ORDER BY category";
 
         db.get(sql,(err, row) => {
           if(err){
@@ -70,7 +70,7 @@ app.get('/api/getData', function(req,res){
           }       
         })
       }else{
-        let sql = "SELECT * FROM "+req.query.table;
+        let sql = "SELECT * FROM "+req.query.table+" ORDER BY category";
         db.all(sql, [], (err, rows) => {
           if(err){
             throw err;
@@ -140,6 +140,7 @@ app.get('/api/setData', function(req,res){
 // INPUT PARAMS:
 // table - mandatory
 // name - mandatory
+// category - mandatory
 app.get('/api/addData', function(req,res){
     console.log("/api/addData");
 
@@ -161,7 +162,16 @@ app.get('/api/addData', function(req,res){
         return;
     }
 
-    let sql = "INSERT INTO "+req.query.table+" (name) VALUES ('"+req.query.name+"')";
+    // category is mandatory
+    if(!req.query.category)
+    {
+        console.log("Missing input parameter: category!");
+
+        res.status(400).send(); // 400 Bad Request
+        return;
+    }
+
+    let sql = "INSERT INTO "+req.query.table+" (name,category) VALUES ('"+req.query.name+"','"+req.query.category+"')";
 
     db.run(sql,function (err) {
       if(err){

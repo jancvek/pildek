@@ -16,6 +16,7 @@ function ListAll(props) {
     fetch("/api/getData?table=store")
     .then((resp) => resp.json())
     .then(function(a){
+      console.log(a);
         setDataAll(a);
     })
   };
