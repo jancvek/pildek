@@ -60,7 +60,7 @@ function ListAll(props) {
     return (
         <div>
           <FormAddNewStore></FormAddNewStore>
-          <ListGroup>{dataAll.map((val) => <ItemStore key={val.id} id={val.id} name={val.name} store={props.store}></ItemStore>)}</ListGroup>
+          <ListGroup>{dataAll.map((val) => <ItemStore key={val.id} id={val.id} name={val.name} store={props.store} category={props.category}></ItemStore>)}</ListGroup>
         </div>
       );
   }

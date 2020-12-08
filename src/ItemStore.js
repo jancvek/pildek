@@ -26,7 +26,7 @@ function ItemStore(props) {
 
                     // no content
                     // add to data
-                    fetch("/api/addData?table=data&name="+props.name)
+                    fetch("/api/addData?table=data&name="+props.name+"&category="+props.category)
                         .then((r) =>{
                             if(!r.ok) throw Error(r.statusText);
                             return r;
@@ -34,7 +34,7 @@ function ItemStore(props) {
                         .then((r) => r.json())
                         .then(function(a){
                             console.log("Added row id: "+a.id);
-                            setData(data.concat({"id":a.id, "is_checked":0, "name":props.name}));
+                            setData(data.concat({"id":a.id, "is_checked":0, "name":props.name, "category":props.category}));
 
                         })
                         .catch((er) => console.log(er));

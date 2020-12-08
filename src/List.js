@@ -31,7 +31,7 @@ function List(props) {
     return (
         <div>
             <FormAddNewItem></FormAddNewItem>
-            <ListGroup>{data.map((d) => <Item key={d.id} id={d.id} name={d.name} checked={d.is_checked}></Item>)}</ListGroup>
+            <ListGroup>{data.map((d) => <Item key={d.id} id={d.id} name={d.name} checked={d.is_checked} category={d.category}></Item>)}</ListGroup>
         </div>
       );
   }

@@ -9,6 +9,7 @@ function FormAddNewStore() {
 
     const {dataAll,setDataAll} = useContext(StoreContext);
     const [name, setName] = useState();
+    const [categ, setCateg] = useState();
 
     const [show, setShow] = useState(false);
 
@@ -75,7 +76,9 @@ function FormAddNewStore() {
                         onChange={e => setName(e.target.value)}
                         />
                         <br />
-                        <Form.Control as="select">
+                        <Form.Control as="select"
+                            onChange={e => {setCateg(e.target.options[e.target.selectedIndex].value);}}
+                        >
                             <option value='1'>Sadje in zelenjava</option>
                             <option value='2'>Mlečni izdelki</option>
                             <option value='3'>Delikatesa</option>

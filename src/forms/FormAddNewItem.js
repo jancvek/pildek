@@ -35,7 +35,7 @@ function FormAddNewItem() {
                     .then((r) => r.json())
                     .then(function(a){
                         console.log("Added row id: "+a.id);
-                        setData(data.concat({"id":a.id, "is_checked":0, "name":name}));
+                        setData(data.concat({"id":a.id, "is_checked":0, "name":name, "category":"50"}));
 
                     })
                     .catch((er) => console.log(er));

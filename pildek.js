@@ -61,9 +61,9 @@ app.get('/api/getData', function(req,res){
           }
   
           if(req.query.table == "data"){
-            res.status(200).json({"id": row.id, "name": row.name, "is_checked": row.is_checked});
+            res.status(200).json({"id": row.id, "name": row.name, "is_checked": row.is_checked, "category": row.category});
           }else if(req.query.table == "store"){
-            res.status(200).json({"id": row.id, "name": row.name});
+            res.status(200).json({"id": row.id, "name": row.name, "category": row.category});
           }else{
             res.status(500).send(); // 500 Internal server error
             return;
@@ -82,10 +82,10 @@ app.get('/api/getData', function(req,res){
             console.log(row.name);
 
             if(req.query.table == "data"){
-                array.push({"id":row.id, "name": row.name, "is_checked": row.is_checked});
+                array.push({"id":row.id, "name": row.name, "is_checked": row.is_checked, "category": row.category});
             }
             else if(req.query.table == "store"){
-                array.push({"id":row.id, "name": row.name});
+                array.push({"id":row.id, "name": row.name, "category": row.category});
             }
             else{
                 res.status(500).send(); // 500 Internal server error
